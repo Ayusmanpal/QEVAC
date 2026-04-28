@@ -42,7 +42,7 @@ Generate an evacuation plan based on the criteria. Ensure the output is valid JS
     });
 
     // Parse the JSON response
-    const data = JSON.parse(response.text());
+    const data = JSON.parse(response.text);
     return data;
   } catch (error) {
     console.error("Gemini API Error:", error);
