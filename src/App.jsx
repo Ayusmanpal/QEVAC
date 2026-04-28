@@ -15,6 +15,8 @@ function App() {
   const [theme, setTheme] = useState('dark');
   const [routeInfo, setRouteInfo] = useState({ coords: [], safeZone: null });
 
+  const dangerRadius = severity === 'catastrophic' ? 5000 : severity === 'major' ? 2500 : 800;
+
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
   }, [theme]);
@@ -28,8 +30,6 @@ function App() {
     setLocation(formData.location);
     setCrisisType(formData.crisisType);
     setSeverity(formData.severity);
-    
-    const dangerRadius = formData.severity === 'catastrophic' ? 5000 : formData.severity === 'major' ? 2500 : 800;
     
     try {
       let startLocation = null;
